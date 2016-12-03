@@ -67,12 +67,14 @@ module.exports = {
     // check to see if that user exists in the database
     var token = req.headers['x-access-token'];
     if (!token) {
-      next(new Error('No token'));
+      // next(new Error('No token'));
+      res.redirect('/#/signin');
     } else {
       var user = jwt.decode(token, 'secret');
       findUser({username: user.username})
         .then(function (foundUser) {
           if (foundUser) {
+            next();
             res.send(200);
           } else {
             res.send(401);
