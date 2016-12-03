@@ -61,7 +61,6 @@ module.exports = {
   },
 
   checkAuth: function (req, res, next) {
-    console.log('checkAuth called');
     // checking to see if the user is authenticated
     // grab the token in the header is any
     // then decode the token, which we end up being the user object
