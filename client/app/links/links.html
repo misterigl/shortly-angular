@@ -1,7 +1,10 @@
 <div id='container'>
+<div ng-include src="'app/services/navbar.html'"></div>
+
   <!-- Your html here -->
+<input type="text" name="filter" ng-model="filterByTitle">
 <ul>
-  <li ng-repeat="link in data.links">{{link}}</li>
+  <li ng-repeat="link in data.links | orderBy:'-visits' |filter:filterByTitle"><h2>{{link.title}}</h2>URL: <a ng-href="{{link.code}}">{{link.url}}</a><br />Visits: {{link.visits}}</li>
 </ul>
 We are at Links
 </div>

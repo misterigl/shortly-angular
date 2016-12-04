@@ -15,14 +15,23 @@ angular.module('shortly.services', [])
       });
     },
     addOne: function(link) {
+      console.log('link', link);
       return $http({
         method: 'POST',
-        url: '/api/links',
+        url: '/api/links/',
         data: link
       }).then(function(res) {
         return res;
       }, function(err) {
         console.log(err);
+      });
+    },
+    getUser: function() {
+      return $http({
+        method: 'GET',
+        url: '/api/users'
+      }).then(function(res) {
+        console.log(res);
       });
     }
   };
@@ -65,6 +74,8 @@ angular.module('shortly.services', [])
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };
+
+
 
 
   return {

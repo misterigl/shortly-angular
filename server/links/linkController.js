@@ -21,6 +21,7 @@ module.exports = {
 
   newLink: function (req, res, next) {
     var url = req.body.url;
+    console.log(url);
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }
@@ -50,6 +51,7 @@ module.exports = {
         }
       })
       .fail(function (error) {
+        console.log('error in server');
         next(error);
       });
   },

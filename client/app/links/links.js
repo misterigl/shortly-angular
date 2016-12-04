@@ -9,4 +9,10 @@ angular.module('shortly.links', [])
     $scope.data.links = data;
   });
 
+  // Links.getUser().then(function(users) {
+  //   console.log('user', users);
+  // }, function(err) {
+  //   console.log('err', err);
+  // });
+
 });
